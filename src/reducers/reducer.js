@@ -1,9 +1,13 @@
-const reducer = (state, action) => {
+export const initialState = [
+  {task: 'Write TODO app', completed: false, id: 294849128}
+]
+
+export const reducer = (state, action) => {
   switch (action.type) {
 
-    case 'ADDTODO':
+    case 'add':
       return {...state, }
-    case 'CLEARCOMPLETED':
+    case 'clear':
       return {...state, action}
     default:
       return state
@@ -11,3 +15,5 @@ const reducer = (state, action) => {
   }
 
 }
+
+
