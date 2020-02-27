@@ -1,13 +1,20 @@
-import React, {useReducer} from 'react'
-import {initialState, reducer} from '../reducers/reducer'
+import React from 'react'
 import Todo from './Todo'
 
-const TodoList = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+const TodoList = (state) => {
+  const toggleComplete = (todo) => {
+    state.dispatch({type: 'toggle', payload: todo})
+  }
   return (
       <div>
-        {state.map(todo => {
-          return (<Todo key={todo.id} task={todo.task} completed={todo.completed}/>)
+        {state.todos.map(todo => {
+          console.log(todo)
+          return (<Todo
+              key={todo.id}
+              task={todo.task}
+              completed={todo.completed}
+              id={todo.id}
+              toggle={toggleComplete}/>)
         })}
       </div>
   )

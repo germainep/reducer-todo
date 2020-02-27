@@ -6,9 +6,13 @@ export const reducer = (state, action) => {
   switch (action.type) {
 
     case 'add':
-      return {...state, }
+      return [...state, {task: action.payload, completed: false, id: Date.now() }]
+    case 'toggle':
+
+      return state
+
     case 'clear':
-      return {...state, action}
+      return [...state, action]
     default:
       return state
 
