@@ -7,11 +7,11 @@ import { initialState, reducer } from "./reducers/reducer";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <div className="App">
       <TodoForm state={state} dispatch={dispatch} />
       <TodoList todos={state} dispatch={dispatch} />
-      <button>Clear Completed</button>
     </div>
   );
 }

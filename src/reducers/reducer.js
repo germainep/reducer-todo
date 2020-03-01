@@ -20,7 +20,13 @@ export const reducer = (state, action) => {
       return [...state];
 
     case "clear":
-      return [...state, action];
+      const newState = state.filter(todo => {
+        if (!todo.completed) {
+          return [todo];
+        }
+      });
+      return newState;
+
     default:
       return state;
   }
