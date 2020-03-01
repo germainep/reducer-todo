@@ -1,23 +1,26 @@
-import React from 'react'
-import Todo from './Todo'
+import React from "react";
+import Todo from "./Todo";
 
-const TodoList = (state) => {
-  const toggleComplete = (todo) => {
-    state.dispatch({type: 'toggle', payload: todo})
-  }
+const TodoList = state => {
+  const toggleComplete = (e, id) => {
+    state.dispatch({ type: "toggle", payload: id });
+    console.log(id);
+  };
   return (
-      <div>
-        {state.todos.map(todo => {
-          console.log(todo)
-          return (<Todo
-              key={todo.id}
-              task={todo.task}
-              completed={todo.completed}
-              id={todo.id}
-              toggle={toggleComplete}/>)
-        })}
-      </div>
-  )
-}
+    <div>
+      {state.todos.map(todo => {
+        return (
+          <Todo
+            key={todo.id}
+            task={todo.task}
+            completed={todo.completed}
+            id={todo.id}
+            toggle={toggleComplete}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
-export default TodoList
+export default TodoList;
